@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaikhari - Simple Apps for Productivity & Learning</title>
+    <link rel="icon" type="image/png" href="assets/images/logo_round.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-dark: #1A3A70;
+            --teal: #17A697;
+            --light-blue: #5DADE2;
+            --gold: #FFC107;
+            --light-bg: #F8F9FA;
+            --text-dark: #2C3E50;
+            --beige: #FBF6EB
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--teal) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-section img {
+            height: 45px;
+            width: auto;
+        }
+
+        .brand-name {
+            background: linear-gradient(135deg, #fff 0%, var(--light-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            /* background: linear-gradient(135deg, var(--teal) 0%, var(--primary-dark) 100%); */
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--teal) 100%);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-icon {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-icon img {
+            height: 350px;
+            width: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--teal);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-bg);
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .about-content h3 {
+            color: var(--teal);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .devanagari {
+            font-size: 2.5rem;
+            color: var(--teal);
+            margin: 2rem 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Apps Section */
+        .apps {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .app-card {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--teal);
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(23, 166, 151, 0.2);
+        }
+
+        .app-card img {
+            height: 150px;
+            width: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .app-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .app-features {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+            color: #666;
+        }
+
+        .app-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .app-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        /* Get in Touch Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--teal) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+            margin-top: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .contact-info {
+            margin: 2rem 0;
+            font-size: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #0F2340;
+            color: white;
+            padding: 2rem 20px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-icon img {
+                height: 280px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .about-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-icon img {
+                height: 220px;
+            }
+
+            .logo-section {
+                gap: 10px;
+                font-size: 1.1rem;
+            }
+
+            .devanagari {
+                font-size: 2rem;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="assets/images/lotus-removebg-preview.png" alt="Vaikhari Logo">
+                <span class="brand-name">Vaikhari</span>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#apps">Apps</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Vaikhari</h1>
+                <p class="hero-subtitle">Simple Apps for Enhanced Productivity & Learning</p>
+                <p class="hero-description">Empowering users of all ages to focus better, achieve more, and unlock their potential through thoughtfully designed applications.</p>
+                <div class="cta-buttons">
+                    <a href="#apps" class="btn btn-primary">Explore Apps</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-icon">
+                <img src="assets/images/lotus-removebg-preview.png" alt="Vaikhari Brain Icon">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Vaikhari</h2>
+            </div>
+            <div class="about-content">
+                <h3>The Philosophy Behind the Name</h3>
+                <p>
+                    Vaikhari holds profound significance in Hindu and yogic philosophy. It represents the last of four stages that sounds, or "sabda,"
+                    travel through as they become perceptible and audible to our senses. It is considered the gross-level articulated sound of living
+                    beings and physical objects.
+                </p>
+
+                <div class="devanagari">वैखरी</div>
+
+                <h3>Our Initiative</h3>
+                <p>
+                    The Vaikhari initiative is dedicated to creating simple, intuitive applications that help users across all ages to:
+                </p>
+                <ul class="app-features">
+                    <li>Increase productivity through focused work practices</li>
+                    <li>Learn and develop new skills</li>
+                    <li>Achieve their personal and professional goals</li>
+                    <li>Experience technology that respects their time and attention</li>
+                </ul>
+                <p>
+                    Just as Vaikhari represents the articulation of sound into its most tangible form, our apps translate the philosophy
+                    of productivity and learning into practical, user-friendly tools that make a real difference in everyday life.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps" id="apps">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Apps</h2>
+            </div>
+            <div class="apps-grid">
+                <!-- Simple Pomo App Card -->
+                <div class="app-card">
+                    <img src="assets/images/simple_pomo.png" alt="Simple Pomo Logo">
+                    <h3>Simple Pomo</h3>
+                    <p>A clean and distraction-free Pomodoro timer to help you master your focus and productivity.</p>
+                    <ul class="app-features">
+                        <li>Focused work sprints</li>
+                        <li>Regular break intervals</li>
+                        <li>Progress tracking</li>
+                        <li>Customizable timers</li>
+                        <li>Minimalist design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Get in Touch</h2>
+            <p>Connect with us on social media or reach out directly. We'd love to hear from you!</p>
+
+            <div class="social-links">
+                <a href="https://twitter.com" class="social-link" title="X" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://facebook.com" class="social-link" title="Facebook" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:vaikhari.apps@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <p>Email: <a href="mailto:vaikhari.apps@gmail.com">vaikhari.apps@gmail.com</a></p>
+                <p>Follow us on social media for updates and tips on productivity and learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Vaikhari Initiative. All rights reserved.</p>
+        <p>Crafted with care to help you reach your potential.</p>
+    </footer>
+</body>
+</html>
