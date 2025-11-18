@@ -1,0 +1,8 @@
+# Robots.txt for Vaikhari Apps
+# https://vaikhariapps.github.io/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://vaikhariapps.github.io/sitemap.xml
