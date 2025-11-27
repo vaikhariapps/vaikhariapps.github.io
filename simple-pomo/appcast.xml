@@ -1,11 +1,44 @@
-<sparkle:version>1.0.4</sparkle:version>  <!-- NEW version -->
-<title>Version 1.0.4</title>
-<description>
- <![CDATA[
-   <ul>
-     <li>Enhanced Timer</li>
-     <li>Bug fixes</li>
-   </ul>
- ]]>
-</description>
-<pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+<?xml version="1.0" encoding="UTF-8"?>
+  <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+      <title>Simple Pomo</title>
+      <description>A beautifully simple Pomodoro timer</description>
+      <language>en</language>
+
+      <!-- LATEST VERSION - Always keep this at the top -->
+      <item>
+        <title>Version 1.0.4</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>Added app update checker feature</li>
+              <li>Your new feature here</li>
+              <li>Another improvement here</li>
+              <li>Bug fixes and performance improvements</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+        <sparkle:version>1.0.4</sparkle:version>
+        <sparkle:os>android</sparkle:os>
+      </item>
+
+      <!-- PREVIOUS VERSIONS - Keep for history (optional) -->
+      <item>
+        <title>Version 1.0.3</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>Added app version display in About and Settings screens</li>
+              <li>Enhanced daily reminder notification logging</li>
+              <li>Improved expectation-setting for reminder timing</li>
+              <li>Bug fixes and performance improvements</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+        <sparkle:version>1.0.3</sparkle:version>
+        <sparkle:os>android</sparkle:os>
+      </item>
+    </channel>
+  </rss>
