@@ -9,16 +9,9 @@
       <item>
         <title>Version 1.0.4</title>
         <description>
-          <![CDATA[
-            <ul>
-              <li>Added app update checker feature</li>
-              <li>Your new feature here</li>
-              <li>Another improvement here</li>
-              <li>Bug fixes and performance improvements</li>
-            </ul>
-          ]]>
+          🎯 Bug fixes and performance improvements
         </description>
-        <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+        <pubDate>Thu, 03 Nov 2025 00:00:00 +0000</pubDate>
         <sparkle:version>1.0.4</sparkle:version>
         <sparkle:os>android</sparkle:os>
       </item>
