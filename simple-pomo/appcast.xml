@@ -6,6 +6,22 @@
       <language>en</language>
 
       <!-- LATEST VERSION - Always keep this at the top -->
+      
+      <item>
+        <title>Version 1.0.5</title>
+        <description>
+          🔥 Background Timer and performance improvements
+        </description>
+        <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
+        <sparkle:version>1.0.5</sparkle:version>
+        <sparkle:os>android</sparkle:os>
+        <enclosure
+          url="https://play.google.com/store/apps/details?id=app.vaikhari.simplepomo"
+          sparkle:version="1.0.5"
+          sparkle:os="android"
+          type="application/vnd.android.package-archive" />
+      </item>
+      
       <item>
         <title>Version 1.0.4</title>
         <description>
